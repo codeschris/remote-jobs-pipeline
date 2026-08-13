@@ -1,0 +1,111 @@
+# ATS-backed companies to pull directly from their public job boards.
+# ats: greenhouse | lever
+# slug: the identifier used in that ATS's public API URL
+#   Greenhouse: https://boards-api.greenhouse.io/v1/boards/{slug}/jobs
+#   Lever:      https://api.lever.co/v0/postings/{slug}?mode=json
+companies:
+  - name: GitLab
+    slug: gitlab
+    ats: greenhouse
+    domain: gitlab.com
+
+  - name: Automattic
+    slug: automattic
+    ats: greenhouse
+    domain: automattic.com
+
+  - name: Vercel
+    slug: vercel
+    ats: greenhouse
+    domain: vercel.com
+
+  - name: Netlify
+    slug: netlify
+    ats: greenhouse
+    domain: netlify.com
+
+  - name: Zapier
+    slug: zapier
+    ats: lever
+    domain: zapier.com
+
+  - name: Doist
+    slug: doist
+    ats: lever
+    domain: doist.com
+
+  - name: Intercom
+    slug: intercom
+    ats: lever
+    domain: intercom.com
+
+  - name: Linear
+    slug: linear
+    ats: lever
+    domain: linear.app
+
+  - name: Replit
+    slug: replit
+    ats: lever
+    domain: replit.com
+
+  - name: Remote
+    slug: remote
+    ats: lever
+    domain: remote.com
+
+  - name: HashiCorp
+    slug: hashicorp
+    ats: greenhouse
+    domain: hashicorp.com
+
+  - name: Sourcegraph
+    slug: sourcegraph
+    ats: greenhouse
+    domain: sourcegraph.com
+
+  - name: Elastic
+    slug: elastic
+    ats: greenhouse
+    domain: elastic.co
+
+  - name: 1Password
+    slug: 1password
+    ats: greenhouse
+    domain: 1password.com
+
+  - name: Figma
+    slug: figma
+    ats: greenhouse
+    domain: figma.com
+
+  - name: Notion
+    slug: notion
+    ats: greenhouse
+    domain: notion.so
+
+  - name: Cockroach Labs
+    slug: cockroachdb
+    ats: greenhouse
+    domain: cockroachlabs.com
+
+  - name: Fastly
+    slug: fastly
+    ats: greenhouse
+    domain: fastly.com
+
+  - name: Mattermost
+    slug: mattermost
+    ats: greenhouse
+    domain: mattermost.com
+
+  - name: Discord
+    slug: discord
+    ats: greenhouse
+    domain: discord.com
+
+# Add more remote-first companies here as you find them.
+# Greenhouse: check {company-careers-page}/jobs and look for the "boards-api.greenhouse.io" call in network tab
+# Lever: check for "api.lever.co/v0/postings/{slug}" in network tab
+# Slugs can be verified by inspecting network requests on the company's careers page.
+# Wrong slugs are handled gracefully — the source will log a warning and continue.
