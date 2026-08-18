@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { db } from "@/db";
 import { companies, jobs } from "@/db/schema";
 import { and, desc, eq, gte, sql } from "drizzle-orm";
