@@ -4,14 +4,22 @@ import datetime as dt
 import os
 
 from sqlalchemy import create_engine, select
+from sqlalchemy.engine import URL, make_url
 from sqlalchemy.orm import Session, sessionmaker
 
 from pipeline.models import Base, Company, Job
 from pipeline.normalize import NormalizedJob
 
 
+def get_database_url() -> URL:
+    url = make_url(os.environ["DATABASE_URL"])
+    if url.drivername in {"postgres", "postgresql"}:
+        url = url.set(drivername="postgresql+psycopg2")
+    return url
+
+
 def get_engine():
-    url = os.environ["DATABASE_URL"]
+    url = get_database_url()
     return create_engine(url, pool_pre_ping=True)
 
 

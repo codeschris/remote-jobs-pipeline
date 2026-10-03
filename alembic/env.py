@@ -1,18 +1,22 @@
 from __future__ import annotations
 
-import os
 from logging.config import fileConfig
 
 from alembic import context
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
 
+from pipeline.db import get_database_url
+
 load_dotenv()
 
 config = context.config
 
 # Inject DATABASE_URL from environment so credentials are never stored in alembic.ini.
-config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
+config.set_main_option(
+    "sqlalchemy.url",
+    get_database_url().render_as_string(hide_password=False).replace("%", "%%"),
+)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
